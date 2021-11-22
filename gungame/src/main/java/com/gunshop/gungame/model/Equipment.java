@@ -15,13 +15,17 @@ public class Equipment implements Serializable {
     private Double cost;
     private String type_equipment;
     private Integer production_date;
+    private String imageUrl;
+    private String description;
 
-    public Equipment(Long id, String name, Double cost, String type_equipment, Integer production_date) {
+    public Equipment(Long id, String name, Double cost, String type_equipment, Integer production_date, String imageUrl, String description) {
         this.id = id;
         this.name = name;
         this.cost = cost;
         this.type_equipment = type_equipment;
         this.production_date = production_date;
+        this.imageUrl = imageUrl;
+        this.description = description;
     }
 
     public Equipment() {
@@ -68,6 +72,23 @@ public class Equipment implements Serializable {
         this.production_date = production_date;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
     @Override
     public String toString() {
         return "Equipment{" +
@@ -76,6 +97,8 @@ public class Equipment implements Serializable {
                 ", cost=" + cost +
                 ", type_equipment='" + type_equipment + '\'' +
                 ", production_date=" + production_date +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
