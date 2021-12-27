@@ -1,7 +1,7 @@
 package com.gunshop.gungame.service;
 
 import com.gunshop.gungame.model.Equipment;
-import com.gunshop.gungame.repo.EquipmentRepo;
+import com.gunshop.gungame.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 @Service
 public class EquipmentService {
-    private final EquipmentRepo equipmentRepo;
+    private final EquipmentRepository equipmentRepo;
 
     @Autowired
-    public EquipmentService(EquipmentRepo equipmentRepo) {
+    public EquipmentService(EquipmentRepository equipmentRepo) {
         this.equipmentRepo = equipmentRepo;
     }
 
