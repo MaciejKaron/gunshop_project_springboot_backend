@@ -4,6 +4,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class Equipment implements Serializable {
@@ -17,6 +18,8 @@ public class Equipment implements Serializable {
     private Integer production_date;
     private String imageUrl;
     private String description;
+
+
 
     public Equipment(Long id, String name, Double cost, String type_equipment, Integer production_date, String imageUrl, String description) {
         this.id = id;

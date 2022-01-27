@@ -32,11 +32,22 @@ public class User {
     @Size(max = 120)
     private String password;
 
+
+    private String avatar;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+
+
+    @ManyToMany
+    @JoinTable( name = "user_equipment",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipment_id"))
+    Set<Equipment> wishedEquipments;
 
     public User() {
     }
@@ -45,6 +56,22 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public Set<Equipment> getWishedEquipments() {
+        return wishedEquipments;
+    }
+
+    public void setWishedEquipments(Set<Equipment> wishedEquipments) {
+        this.wishedEquipments = wishedEquipments;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public Long getId() {
