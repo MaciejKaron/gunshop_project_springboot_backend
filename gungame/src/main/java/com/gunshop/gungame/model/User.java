@@ -43,11 +43,11 @@ public class User {
 
 
 
-    @ManyToMany
-    @JoinTable( name = "user_equipment",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "equipment_id"))
-    Set<Equipment> wishedEquipments;
+//    @ManyToMany
+//    @JoinTable( name = "user_equipment",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "equipment_id"))
+//    Set<Equipment> wishedEquipments;
 
     public User() {
     }
@@ -58,13 +58,13 @@ public class User {
         this.password = password;
     }
 
-    public Set<Equipment> getWishedEquipments() {
-        return wishedEquipments;
-    }
-
-    public void setWishedEquipments(Set<Equipment> wishedEquipments) {
-        this.wishedEquipments = wishedEquipments;
-    }
+//    public Set<Equipment> getWishedEquipments() {
+//        return wishedEquipments;
+//    }
+//
+//    public void setWishedEquipments(Set<Equipment> wishedEquipments) {
+//        this.wishedEquipments = wishedEquipments;
+//    }
 
     public String getAvatar() {
         return avatar;

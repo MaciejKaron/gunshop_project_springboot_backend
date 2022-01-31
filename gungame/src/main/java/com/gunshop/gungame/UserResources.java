@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping("/api/user")
 public class UserResources {
     private final UserDetailsServiceImpl userDetailsServiceImpl;
-    private final WishesService wishesService;
 
-    public UserResources(UserDetailsServiceImpl userDetailsServiceImpl, WishesService wishesService) {this.userDetailsServiceImpl = userDetailsServiceImpl; this.wishesService = wishesService;}
+
+    public UserResources(UserDetailsServiceImpl userDetailsServiceImpl) {this.userDetailsServiceImpl = userDetailsServiceImpl;}
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUser () {
@@ -43,10 +43,7 @@ public class UserResources {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/wishes/add/{id}")
-    public ResponseEntity<?> addWishes(@PathVariable("id") Long id ){
-        return wishesService.addWish(id);
-    }
+
 
 
 

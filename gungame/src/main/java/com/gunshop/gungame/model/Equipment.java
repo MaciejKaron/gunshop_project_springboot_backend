@@ -20,6 +20,8 @@ public class Equipment implements Serializable {
     private String description;
 
 
+//    @ManyToMany(mappedBy = "wishedEquipments")
+//    Set<User> wishes;
 
     public Equipment(Long id, String name, Double cost, String type_equipment, Integer production_date, String imageUrl, String description) {
         this.id = id;
@@ -91,6 +93,13 @@ public class Equipment implements Serializable {
         this.description = description;
     }
 
+//    public Set<User> getWishes() {
+//        return wishes;
+//    }
+//
+//    public void setWishes(Set<User> wishes) {
+//        this.wishes = wishes;
+//    }
 
     @Override
     public String toString() {

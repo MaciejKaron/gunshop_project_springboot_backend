@@ -24,6 +24,10 @@ public class EquipmentService {
         return equipmentRepo.findAll();
     }
 
+    public Equipment findMyEquipment(Long id){
+        return equipmentRepo.findById(id).get();
+    }
+
     public Equipment updateEquipment(Equipment equipment){
         return equipmentRepo.save(equipment);
     }

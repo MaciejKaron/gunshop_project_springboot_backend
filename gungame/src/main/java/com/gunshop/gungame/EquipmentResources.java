@@ -24,6 +24,12 @@ public class EquipmentResources {
         return new ResponseEntity<>(equipment, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Equipment> getEquipmentById(@PathVariable("id")Long id){
+        Equipment equipment = equipmentService.findMyEquipment(id);
+        return new ResponseEntity<>(equipment, HttpStatus.OK);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Equipment> addEquipment(@RequestBody Equipment equipment) {
         Equipment newEquipment = equipmentService.addEquipment(equipment);
