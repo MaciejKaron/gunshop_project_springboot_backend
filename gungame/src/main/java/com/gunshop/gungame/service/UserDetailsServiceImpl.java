@@ -43,8 +43,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(Integer id){
+    public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
+
+    public User findUserById(Long id) {
+        return userRepository.findById(id).get();
+    }
+
 
 }

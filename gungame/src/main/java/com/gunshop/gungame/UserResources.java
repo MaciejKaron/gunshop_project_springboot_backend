@@ -25,6 +25,12 @@ public class UserResources {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") Long id){
+        User user = userDetailsServiceImpl.findUserById(id);
+        return new ResponseEntity<>(user,HttpStatus.OK);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User newUser = userDetailsServiceImpl.addUser(user);
@@ -38,9 +44,21 @@ public class UserResources {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable("id") Integer id){
+    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id){
         userDetailsServiceImpl.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/upd/{id}")
+    public ResponseEntity<User> updUser(@PathVariable("id") Long id, @RequestBody User user) {
+        User updUser = userDetailsServiceImpl.findUserById(id);
+        updUser.setUsername(user.getUsername());
+        updUser.setEmail(user.getEmail());
+        updUser.setPassword(user.getPassword());
+        updUser.setAvatar(user.getAvatar());
+        updUser.setRoles(user.getRoles());
+        userDetailsServiceImpl.updateUser(updUser);
+        return ResponseEntity.ok(updUser);
     }
 
 
